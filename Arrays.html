@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Array Operations</title>
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        input,
+        button {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        p {
+            border: 1px solid black;
+            padding: 5px;
+            width: 300px;
+        }
+    </style>
+
+    <script>
+
+        var arr = ["10", "20", "30", "40"];
+
+        function checkValue() {
+            var val = document.getElementById("val").value;
+
+            if (arr.includes(val)) {
+                document.getElementById("result").innerHTML = "Value Found";
+            }
+            else {
+                document.getElementById("result").innerHTML = "Value Not Found";
+            }
+        }
+
+        function addEnd() {
+            var val = document.getElementById("val").value;
+
+            arr.push(val);
+
+            document.getElementById("final").innerHTML = "Array : " + arr;
+        }
+
+        function insertIndex() {
+            var val = document.getElementById("val").value;
+            var index = document.getElementById("index").value;
+
+            arr.splice(index, 0, val);
+
+            document.getElementById("final").innerHTML = "Array : " + arr;
+        }
+
+        function removeIndex() {
+            var index = document.getElementById("removeindex").value;
+
+            arr.splice(index, 1);
+
+            document.getElementById("final").innerHTML = "Array : " + arr;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <h2>Array Operations</h2>
+
+    Value :
+    <input type="text" id="val">
+
+    <br><br>
+
+    <button onclick="checkValue()">Check Value</button>
+
+    <p id="result"></p>
+
+    <br>
+
+    <button onclick="addEnd()">Add To End</button>
+
+    <br><br>
+
+    Insert At Index :
+    <input type="number" id="index">
+
+    <button onclick="insertIndex()">Insert</button>
+
+    <br><br>
+
+    Remove Index :
+    <input type="number" id="removeindex">
+
+    <button onclick="removeIndex()">Remove</button>
+
+    <br><br>
+
+    <p id="final"></p>
+
+</body>
+
+</html>
