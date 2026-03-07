@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Currency Converter</title>
+
+<style>
+/* border for entire form */
+.container{
+    border:2px solid black;
+    width:350px;
+    padding:20px;
+}
+
+/* style for paragraph */
+p{
+    background-color:lightblue;
+    color:darkred;
+    border:2px solid black;
+    padding:5px;
+}
+</style>
+
+<script>
+function convert()
+{
+    var amt=document.getElementById("amount").value;
+    var from=document.getElementById("from").value;
+    var to=document.getElementById("to").value;
+    var result=0;
+
+    if(from=="rupee" && to=="dollar")
+        result=amt/80;
+
+    else if(from=="dollar" && to=="rupee")
+        result=amt*80;
+
+    else if(from=="rupee" && to=="euro")
+        result=amt/90;
+
+    else if(from=="euro" && to=="rupee")
+        result=amt*90;
+
+    else
+        result=amt;
+
+    document.getElementById("ans").innerHTML="Converted Amount = "+result;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+Amount:
+<input type="text" id="amount"><br><br>
+
+From:
+<select id="from">
+<option value="rupee">Rupee</option>
+<option value="dollar">Dollar</option>
+<option value="euro">Euro</option>
+</select>
+
+To:
+<select id="to">
+<option value="rupee">Rupee</option>
+<option value="dollar">Dollar</option>
+<option value="euro">Euro</option>
+</select>
+
+<br><br>
+
+<button onclick="convert()">Convert</button>
+
+<p id="ans">Result will appear here</p>
+
+</div>
+
+</body>
+</html>
