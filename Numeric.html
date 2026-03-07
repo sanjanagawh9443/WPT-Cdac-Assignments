@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Program</title>
+</head>
+<body>
+
+    <h2>Display Table</h2>
+
+    Enter Number:
+    <input type="number" id="num">
+
+    <button onclick="showTable()">Show Table</button>
+
+    <script>
+        function showTable() {
+            let number = document.getElementById("num").value;
+
+            for (let i = 1; i <= 10; i++) {
+                console.log(number + " x " + i + " = " + (number * i));
+            }
+        }
+    </script>
+
+</body>
+</html>
