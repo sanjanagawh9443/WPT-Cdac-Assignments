@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+
+    <script>
+        function validateEmail() {
+
+            // Get value from textfield
+            var email = document.getElementById("email").value;
+
+            // Find position of @
+            var atpos = email.indexOf("@");
+
+            // Find position of last .
+            var dotpos = email.lastIndexOf(".");
+
+            // Check condition
+            if (atpos > 0 && dotpos > atpos + 1 && dotpos < email.length - 1) {
+                document.getElementById("result").innerHTML = "Valid Email Format";
+            }
+            else {
+                document.getElementById("result").innerHTML = "Invalid Email Format";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+<h2>Email Validation Form</h2>
+
+Email :
+<input type="text" id="email">
+
+<br><br>
+
+<button onclick="validateEmail()">Validate Email</button>
+
+<p id="result"></p>
+
+</body>
+</html>
