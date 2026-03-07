@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Text Conversion</title>
+
+<script>
+function convertText() {
+
+    // get value from textfield
+    var data = document.getElementById("t1").value;
+
+    // get selected radio button
+    var option = document.querySelector('input[name="case"]:checked').value;
+
+    var result = "";
+
+    if(option == "upper") {
+        result = data.toUpperCase();
+    }
+    else if(option == "lower") {
+        result = data.toLowerCase();
+    }
+    else {
+        result = data;
+    }
+
+    // display result in paragraph
+    document.getElementById("p1").innerHTML = result;
+}
+</script>
+
+</head>
+
+<body>
+
+<h2>Text Case Converter</h2>
+
+Enter Text:
+<input type="text" id="t1">
+
+<br><br>
+
+<input type="radio" name="case" value="upper" onclick="convertText()"> UpperCase
+
+<input type="radio" name="case" value="lower" onclick="convertText()"> LowerCase
+
+<input type="radio" name="case" value="same" onclick="convertText()"> As It Is
+
+<br><br>
+
+<p id="p1"></p>
+
+</body>
+</html>
