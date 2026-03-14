@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Example</title>
+    <style>
+        .error-message {
+            color: red;
+            display: none; /* Hide error initially */
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+        .invalid-input {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <label for="username">Username:</label>
+        <input 
+            type="text" 
+            id="username" 
+            required 
+            minlength="4" 
+            maxlength="10" 
+            aria-describedby="usernameError"
+            class="username-input"
+        />
+        <!-- Container for the error message -->
+        <span id="usernameError" class="error-message"></span>
+        <br><br>
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script src="validation.js"></script>
+</body>
+</html>

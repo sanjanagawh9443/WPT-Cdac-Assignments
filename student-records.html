@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Data Management</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .form-container { margin-bottom: 20px; border: 1px solid #ccc; padding: 15px; width: 300px; }
+        input { display: block; margin-bottom: 10px; width: 90%; padding: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Registration</h2>
+    
+    <div class="form-container">
+        <input type="number" id="stuId" placeholder="Enter Student ID" required>
+        <input type="text" id="stuName" placeholder="Enter Student Name" required>
+        <button onclick="saveAndDisplay()">Save Data</button>
+    </div>
+
+    <h3>Student List</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+          
+        </tbody>
+    </table>
+
+    <script>
+      
+        const studentList = [];
+
+        function saveAndDisplay() {
+            const idInput = document.getElementById('stuId');
+            const nameInput = document.getElementById('stuName');
+            const tableBody = document.getElementById('studentTableBody');
+
+            if (idInput.value && nameInput.value) {
+                const studentObj = {
+                    id: idInput.value,
+                    name: nameInput.value
+                };
+
+                studentList.push(studentObj);
+
+        
+                const row = `<tr>
+                                <td>${studentObj.id}</td>
+                                <td>${studentObj.name}</td>
+                             </tr>`;
+                
+                tableBody.innerHTML += row;
+
+             
+                idInput.value = "";
+                nameInput.value = "";
+            } else {
+                alert("Please fill both fields!");
+            }
+        }
+    </script>
+
+</body>
+</html>
