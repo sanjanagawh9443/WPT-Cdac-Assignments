@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factorial </title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        body { font-family:'Times New Roman', Times, serif; margin: 20px; }
+        p { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Factorial</h2>
+    <button>Enter a number: </button>
+    <input type="number" id="numInput" min="0" >
+    <p id="result">result</p>
+<script>
+        // Function to calculate factorial
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+        // jQuery change event
+        $(document).ready(function() {
+            $("#numInput").on("change", function() {
+                let value = $(this).val();
+                        // Input validation
+                if (value === "" || isNaN(value) || value < 0) {
+                    $("#result").text("Please enter a valid non-negative number.");
+                    return;
+                }
+                let num = parseInt(value, 10);
+                $("#result").text(`Factorial of ${num} is: ${factorial(num)}`);
+            });
+        });
+    </script>
+</body>
+</html>

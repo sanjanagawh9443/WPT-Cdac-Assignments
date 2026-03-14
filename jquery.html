@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery Button Click Example</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        body {
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="okBtn">OK</button>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <script>
+        $(document).ready(function() {
+            $("#okBtn").on("click", function() {
+                // Display normal hello
+                $("#p1").text("hello");
+
+                // Display italic hello
+                $("#p2").html("<i>hello</i>");
+
+                // Display underlined hello
+                $("#p3").html("<u>hello</u>");
+            });
+        });
+    </script>
+</body>
+</html>
