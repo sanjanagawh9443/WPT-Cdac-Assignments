@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Username</title>
+</head>
+<body>
+  <label>First Name:</label>
+  <input type="text" id="firstName" /><br><br>
+
+  <label>Last Name:</label>
+  <input type="text" id="lastName" /><br><br>
+
+  <label>Birth Date:</label>
+  <input type="date" id="birthDate" /><br><br>
+
+  <button onclick="Accept()">Accept</button>
+
+  <p id="result"></p>
+
+  <script>
+    function Accept() {
+      const firstName = document.getElementById("firstName").value;
+      const lastName = document.getElementById("lastName").value;
+      const birthDate = new Date(document.getElementById("birthDate").value);
+
+      if (!firstName || !lastName || !birthDate) {
+        document.getElementById("result").innerText = "All field are required.";
+        return;
+      }
+
+      // Calculate age
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      // Username logic: first 2 chars of firstname + age + last 2 chars of lastname
+      const firstTwo = firstName.substring(0, 2).toLowerCase();
+      const lastTwo = lastName.substring(lastName.length - 2).toLowerCase();
+
+      const username = firstTwo + age + lastTwo;
+
+      document.getElementById("result").innerText = "Accept: " + username;
+    }
+  </script>
+</body>
+</html>

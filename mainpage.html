@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery Load Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h2>Main Page</h2>
+  <button id="loadBtn">Load Content</button>
+  
+  <!-- Container where content will be loaded -->
+  <div id="result"></div>
+
+  <script>
+    $(document).ready(function(){
+      $("#loadBtn").click(function(){
+        // Load content.html into #result div
+        $("#result").load("content.html");
+      });
+    });
+  </script>
+</body>
+</html>
