@@ -14,7 +14,7 @@ function SimpleForm() {
     <div style={{ marginTop: '20px' }}>
       <input 
         type="text" 
-        placeholder="Yahan kuch likhein..." 
+        placeholder="write here..." 
         value={inputValue} 
         onChange={(e) => setInputValue(e.target.value)} 
         style={{ padding: '10px', fontSize: '16px' }}
